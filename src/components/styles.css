@@ -1,0 +1,33 @@
+.win-grid {
+	letter-spacing: 2px;
+	display: grid;
+	align-items: stretch;
+	text-align: center;
+	grid-gap: 0.71rem;
+	border: 1px solid transparent;
+}
+
+.win-btn {
+	text-align: center;
+	border: none;
+	border-radius: 0px;
+	cursor: default;
+	color: white;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid transparent;
+}
+
+.win-btn > img {
+	filter: contrast(0.85);
+}
+
+.hoverlay {
+	min-width: 100%;
+	min-height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	mix-blend-mode: screen;
+	border: 1px solid transparent;
+}
