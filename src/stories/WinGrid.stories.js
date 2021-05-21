@@ -27,7 +27,7 @@ stories.add('App', () => {
 							</WinItem>
 						);
 					})}
-				<WinItem>
+				<WinItem disabled>
 					<input type='checkbox' name='' id='' />
 					<input type='range' name='' id='' />
 					<input type='number' name='' id='' />
@@ -36,13 +36,11 @@ stories.add('App', () => {
 
 			<WinItem
 				style={{ padding: '5rem', backgroundColor: '#333' }}
-				onlyBackground
-				disabled>
+				onlyBorders>
 				Lorem ipsum dolor sit.
 			</WinItem>
 
 			<WinItem
-				onlyBorders
 				contentIsImage
 				style={{
 					gridColumn: '1/-1',

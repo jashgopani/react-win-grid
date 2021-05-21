@@ -1,4 +1,10 @@
-import React, { useState, forwardRef, createRef } from 'react';
+import React, {
+	useState,
+	forwardRef,
+	createRef,
+	Children,
+	cloneElement,
+} from 'react';
 import { getUniqueId, getXY, join } from '../utils';
 import '../styles.css';
 
@@ -58,34 +64,38 @@ export const WinItem = forwardRef((props, ref) => {
 	const identifier = props.id ?? `wb#${getUniqueId(3)}`;
 
 	const commonAttrs = {
+		id: identifier,
+		style: { ...props.style },
 		disabled: props.disabled,
+		tabIndex: props.tabIndex,
 		'data-grid-tag': props.gridTag ?? null,
 		'data-only-borders': Boolean(props.onlyBorders),
 		'data-only-background': Boolean(props.onlyBackground),
 	};
 
+	const children = props.disabled
+		? Children.toArray(props.children).map((e) =>
+				cloneElement(e, { ...e.props, disabled: true })
+		  )
+		: props.children;
 	const nonImageContent = (
 		<button
-			id={identifier}
-			style={{ ...props.style }}
 			ref={ref}
 			className={`win-btn ${props.extraClasses ?? ''} `}
 			{...commonAttrs}
 			{...eventHandlers}>
-			{props.children}
+			{children}
 		</button>
 	);
 	const imageContent = (
 		<button
-			id={identifier}
-			style={{ ...props.style }}
 			className={`win-btn ${props.extraClasses ?? ''} `}
 			{...commonAttrs}>
-			{props.children}
+			{children}
 			<section
 				ref={ref}
 				className='hoverlay'
-				data-grid-tag={props.gridTag ?? null}
+				disabled={Boolean(props.disabled)}
 				{...eventHandlers}
 			/>
 		</button>
