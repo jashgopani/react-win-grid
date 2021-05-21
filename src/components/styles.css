@@ -21,6 +21,10 @@
 .win-btn:focus-visible {
 	outline: 2px solid red;
 }
+
+.win-btn:disabled {
+	filter: brightness(0.5);
+}
 .win-btn > img {
 	filter: contrast(0.85);
 }

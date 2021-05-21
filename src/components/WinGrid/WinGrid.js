@@ -89,6 +89,8 @@ export const WinGrid = forwardRef((props, gridRef) => {
 				String(el.dataset.gridTag).startsWith(
 					`grid#${gridId.current}child`
 				) &&
+				!el.disabled &&
+				el.dataset.onlyBackground === 'false' &&
 				stringify(el) in gridChildrenRefMap.current
 			);
 		};

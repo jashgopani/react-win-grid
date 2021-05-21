@@ -41,9 +41,12 @@ export const WinItem = forwardRef((props, ref) => {
 
 	function handlePointerMove(e) {
 		const [x, y] = getXY(ref.current, e);
-		if (!props.onlyBorders)
-			ref.current.style.backgroundImage = `radial-gradient(circle at ${x}px ${y}px , ${backgroundColors} )`;
-		ref.current.style.borderImage = `radial-gradient(50% 110% at ${x}px ${y}px ,${borderColors},transparent ) 10 / ${borderWidth}px / 0px stretch `;
+		if (!props.disabled) {
+			if (!props.onlyBorders)
+				ref.current.style.backgroundImage = `radial-gradient(circle at ${x}px ${y}px , ${backgroundColors} )`;
+			if (!props.onlyBackground)
+				ref.current.style.borderImage = `radial-gradient(50% 110% at ${x}px ${y}px ,${borderColors},transparent ) 10 / ${borderWidth}px / 0px stretch `;
+		}
 	}
 
 	function handlePointerLeave(e) {
@@ -54,13 +57,20 @@ export const WinItem = forwardRef((props, ref) => {
 
 	const identifier = props.id ?? `wb#${getUniqueId(3)}`;
 
+	const commonAttrs = {
+		disabled: props.disabled,
+		'data-grid-tag': props.gridTag ?? null,
+		'data-only-borders': Boolean(props.onlyBorders),
+		'data-only-background': Boolean(props.onlyBackground),
+	};
+
 	const nonImageContent = (
 		<button
 			id={identifier}
 			style={{ ...props.style }}
 			ref={ref}
 			className={`win-btn ${props.extraClasses ?? ''} `}
-			data-grid-tag={props.gridTag ?? null}
+			{...commonAttrs}
 			{...eventHandlers}>
 			{props.children}
 		</button>
@@ -69,7 +79,8 @@ export const WinItem = forwardRef((props, ref) => {
 		<button
 			id={identifier}
 			style={{ ...props.style }}
-			className={`win-btn ${props.extraClasses ?? ''} `}>
+			className={`win-btn ${props.extraClasses ?? ''} `}
+			{...commonAttrs}>
 			{props.children}
 			<section
 				ref={ref}

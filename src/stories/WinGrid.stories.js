@@ -16,11 +16,13 @@ stories.add('App', () => {
 				}}
 				directions={16}
 				offsetPoints={[0, 0.1, 0.25, 0.5, 0.69, 1, 1.3, 1.15, 1.5]}>
-				{Array(25)
+				{Array(15)
 					.fill()
 					.map((e, i) => {
 						return (
-							<WinItem key={'winbtn' + getUniqueId()}>
+							<WinItem
+								key={'winbtn' + getUniqueId()}
+								disabled={i > 8}>
 								<p>From loop {i}</p>
 							</WinItem>
 						);
@@ -31,11 +33,16 @@ stories.add('App', () => {
 					<input type='number' name='' id='' />
 				</WinItem>
 			</WinGrid>
-			<p style={{ width: 'max-content' }}>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius,
-				voluptate.
-			</p>
+
 			<WinItem
+				style={{ padding: '5rem', backgroundColor: '#333' }}
+				onlyBackground
+				disabled>
+				Lorem ipsum dolor sit.
+			</WinItem>
+
+			<WinItem
+				onlyBorders
 				contentIsImage
 				style={{
 					gridColumn: '1/-1',
