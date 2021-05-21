@@ -13,7 +13,6 @@ import { getUniqueId, join } from '../utils';
 import '../styles.css';
 
 export const WinGrid = forwardRef((props, gridRef) => {
-	console.log(props.className);
 	gridRef = gridRef ?? createRef();
 	const gridId = useRef(getUniqueId(3));
 

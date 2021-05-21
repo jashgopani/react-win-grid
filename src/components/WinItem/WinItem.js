@@ -66,11 +66,11 @@ export const WinItem = forwardRef((props, ref) => {
 	const commonAttrs = {
 		id: identifier,
 		style: { ...props.style },
-		disabled: Boolean(props.disabled),
-		'data-disabled': Boolean(props.disabled),
+		disabled: props.disabled ? true : false,
+		'data-disabled': props.disabled ? true : false,
 		'data-grid-tag': props.gridTag ?? null,
-		'data-only-borders': Boolean(props.onlyBorders),
-		'data-only-background': Boolean(props.onlyBackground),
+		'data-only-borders': props.onlyBorders ? true : false,
+		'data-only-background': props.onlyBackground ? true : false,
 	};
 
 	const children = props.disabled

@@ -9,7 +9,7 @@ const stories = storiesOf('Appx', module);
 stories.add('App', () => {
 	return (
 		<>
-			<WinGrid
+			{/* <WinGrid
 				className='text-white'
 				style={{
 					gridTemplateColumns: `repeat(auto-fit,minmax(360px,1fr))`,
@@ -23,28 +23,29 @@ stories.add('App', () => {
 				offsetPoints={[0, 0.1, 0.25, 0.5, 0.69, 1, 1.3, 1.15, 1.5]}>
 				<h1 style={{ gridColumn: '1/-1' }}>
 					This is a <strong> WinGrid</strong> Component
-				</h1>
-				{Array(15)
-					.fill()
-					.map((e, i) => {
-						return (
-							<WinItem
-								key={'winbtn' + getUniqueId()}
-								contentIsImage
-								style={{ padding: '0.3rem' }}
-								disabled={i > 8}>
-								<img
-									src='https://picsum.photos/1024'
-									alt='imagesc'
-									style={{
-										objectFit: 'cover',
-										maxWidth: `100%`,
-									}}
-								/>
-								<p>Grid Item {i}</p>
-							</WinItem>
-						);
-					})}
+				</h1> */}
+			<WinGrid
+				style={{
+					margin: 'auto',
+					gridTemplateColumns: `1fr`,
+					justifyContent: 'flex-start',
+					alignItems: 'flex-start',
+					alignContent: 'flex-start',
+					textAlign: 'start',
+					width: '80vw',
+				}}
+				directions={16}
+				offsetPoints={[0, 0.1, 0.25, 0.5, 0.69, 1, 1.3, 1.15, 1.5]}>
+				<h1 style={{ gridColumn: '1/-1' }}>react-win-grid Demo</h1>
+				<h2>1. WinItem</h2>
+				<WinItem className='normal'>
+					<p>Simple Button</p>
+				</WinItem>
+				<WinItem disabled className='normal'>
+					<input type='checkbox' name='' id='' />
+					<input type='range' name='' id='' />
+					<input type='number' name='' id='' />
+				</WinItem>
 			</WinGrid>
 			<WinItem disabled>
 				<input type='checkbox' name='' id='' />
