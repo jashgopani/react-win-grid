@@ -10,6 +10,7 @@ stories.add('App', () => {
 	return (
 		<>
 			<WinGrid
+				className='text-white'
 				style={{
 					gridTemplateColumns: `repeat(auto-fit,minmax(360px,1fr))`,
 					justifyContent: 'start',

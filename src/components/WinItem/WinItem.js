@@ -81,7 +81,7 @@ export const WinItem = forwardRef((props, ref) => {
 	const nonImageContent = (
 		<button
 			ref={ref}
-			className={`win-btn ${props.extraClasses ?? ''} `}
+			className={`win-btn ${props.className ?? ''} `}
 			{...commonAttrs}
 			{...eventHandlers}>
 			{children}
@@ -89,7 +89,7 @@ export const WinItem = forwardRef((props, ref) => {
 	);
 	const imageContent = (
 		<button
-			className={`win-btn ${props.extraClasses ?? ''} `}
+			className={`win-btn ${props.className ?? ''} `}
 			{...commonAttrs}>
 			{children}
 			<section

@@ -13,6 +13,7 @@ import { getUniqueId, join } from '../utils';
 import '../styles.css';
 
 export const WinGrid = forwardRef((props, gridRef) => {
+	console.log(props.className);
 	gridRef = gridRef ?? createRef();
 	const gridId = useRef(getUniqueId(3));
 
@@ -134,7 +135,7 @@ export const WinGrid = forwardRef((props, gridRef) => {
 	return (
 		<main
 			ref={gridRef}
-			className='win-grid'
+			className={`win-grid ${props.className ?? ''}`}
 			id={`wingrid#${gridId.current}`}
 			{...eventHandlers}
 			style={gridStyle}>
