@@ -70,12 +70,13 @@ export const WinGrid = forwardRef((props, gridRef) => {
 			elementsNearCursorSet.current &&
 			elementsNearCursorSet.current.size > 0
 		) {
-			elementsNearCursorSet.current.forEach(
-				(e) =>
-					(gridChildrenRefMap.current[
+			elementsNearCursorSet.current.forEach((e) => {
+				if (e && gridChildrenRefMap.current[e]) {
+					gridChildrenRefMap.current[
 						e
-					].current.style.borderImage = null)
-			);
+					].current.style.borderImage = null;
+				}
+			});
 			elementsNearCursorSet.current.clear();
 		}
 	}
@@ -86,10 +87,12 @@ export const WinGrid = forwardRef((props, gridRef) => {
 		const predicate = (el) => {
 			return (
 				el.dataset.gridTag &&
+				el.dataset.disabled &&
+				el.dataset.onlyBackground &&
 				String(el.dataset.gridTag).startsWith(
 					`grid#${gridId.current}child`
 				) &&
-				!el.disabled &&
+				el.dataset.disabled === 'false' &&
 				el.dataset.onlyBackground === 'false' &&
 				stringify(el) in gridChildrenRefMap.current
 			);
@@ -97,18 +100,20 @@ export const WinGrid = forwardRef((props, gridRef) => {
 
 		const modifier = (el, x, y) => {
 			const elementDomString = stringify(el);
-			const elementRef =
-				gridChildrenRefMap.current[elementDomString].current;
-			if (elementRef) {
-				const brect = elementRef.getBoundingClientRect();
-				const bx = x - brect.left;
-				const by = y - brect.top;
-				if (!elementRef.style.borderImage)
-					elementRef.style.borderImage = `radial-gradient(${
-						offset * highlightRadius
-					}px ${
-						offset * highlightRadius
-					}px at ${bx}px ${by}px ,${borderColors},transparent ) 10 / ${borderWidth}px / 0px stretch `;
+			if (elementDomString in gridChildrenRefMap.current) {
+				const elementRef =
+					gridChildrenRefMap.current[elementDomString].current;
+				if (elementRef) {
+					const brect = elementRef.getBoundingClientRect();
+					const bx = x - brect.left;
+					const by = y - brect.top;
+					if (!elementRef.style.borderImage)
+						elementRef.style.borderImage = `radial-gradient(${
+							offset * highlightRadius
+						}px ${
+							offset * highlightRadius
+						}px at ${bx}px ${by}px ,${borderColors},transparent ) 10 / ${borderWidth}px / 0px stretch `;
+				}
 			}
 			return elementDomString;
 		};
@@ -151,7 +156,9 @@ export const WinGrid = forwardRef((props, gridRef) => {
 				gridChildProps.ref = r;
 				gridChildProps.key = gridTag;
 				gridChildProps.gridTag = gridTag;
-
+				if (typeof gridChildrenArray[i].type !== 'string') {
+					gridChildProps.gridTag = gridTag;
+				}
 				return cloneElement(gridChildrenArray[i], gridChildProps);
 			})}
 		</main>

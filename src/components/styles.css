@@ -1,9 +1,8 @@
 .win-grid {
 	letter-spacing: 2px;
 	display: grid;
-	align-items: stretch;
 	text-align: center;
-	grid-gap: 0.71rem;
+	grid-gap: 1rem;
 	border: 1px solid transparent;
 }
 
@@ -24,7 +23,6 @@
 
 .win-btn:disabled {
 	filter: brightness(0.5);
-	pointer-events: none;
 }
 
 .win-btn > img {

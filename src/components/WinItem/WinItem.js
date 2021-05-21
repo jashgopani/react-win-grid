@@ -66,8 +66,8 @@ export const WinItem = forwardRef((props, ref) => {
 	const commonAttrs = {
 		id: identifier,
 		style: { ...props.style },
-		disabled: props.disabled,
-		tabIndex: props.tabIndex,
+		disabled: Boolean(props.disabled),
+		'data-disabled': Boolean(props.disabled),
 		'data-grid-tag': props.gridTag ?? null,
 		'data-only-borders': Boolean(props.onlyBorders),
 		'data-only-background': Boolean(props.onlyBackground),
@@ -95,7 +95,11 @@ export const WinItem = forwardRef((props, ref) => {
 			<section
 				ref={ref}
 				className='hoverlay'
-				disabled={Boolean(props.disabled)}
+				{...{
+					...commonAttrs,
+					id: 'WinItemImage-' + commonAttrs.id,
+					style: null,
+				}}
 				{...eventHandlers}
 			/>
 		</button>
