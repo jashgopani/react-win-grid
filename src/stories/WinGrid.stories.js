@@ -10,14 +10,13 @@ stories.add('App', () => {
 	return (
 		<>
 			<WinGrid
-				highlightRadius='4'
 				style={{
-					gridTemplateColumns: `repeat(3,1fr)`,
+					gridTemplateColumns: `repeat(5,1fr)`,
 					padding: '5rem',
 				}}
 				directions={16}
 				offsetPoints={[0, 0.1, 0.25, 0.5, 0.69, 1, 1.3, 1.15, 1.5]}>
-				{Array(7)
+				{Array(25)
 					.fill()
 					.map((e, i) => {
 						return (

@@ -55,7 +55,7 @@ export const WinItem = forwardRef((props, ref) => {
 	const identifier = props.id ?? `wb#${getUniqueId(3)}`;
 
 	const nonImageContent = (
-		<article
+		<button
 			id={identifier}
 			style={{ ...props.style }}
 			ref={ref}
@@ -63,10 +63,10 @@ export const WinItem = forwardRef((props, ref) => {
 			data-grid-tag={props.gridTag ?? null}
 			{...eventHandlers}>
 			{props.children}
-		</article>
+		</button>
 	);
 	const imageContent = (
-		<article
+		<button
 			id={identifier}
 			style={{ ...props.style }}
 			className={`win-btn ${props.extraClasses ?? ''} `}>
@@ -77,7 +77,7 @@ export const WinItem = forwardRef((props, ref) => {
 				data-grid-tag={props.gridTag ?? null}
 				{...eventHandlers}
 			/>
-		</article>
+		</button>
 	);
 
 	return props.contentIsImage ? imageContent : nonImageContent;

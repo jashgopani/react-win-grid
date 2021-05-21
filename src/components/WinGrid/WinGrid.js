@@ -38,7 +38,7 @@ export const WinGrid = forwardRef((props, gridRef) => {
 		nearbyElements(directions, offset)
 	);
 
-	const [highlightRadius] = useState(props.highlightRadius ?? 3);
+	const [highlightRadius] = useState(props.highlightRadius ?? 1.69);
 	const [borderWidth] = useState(props.borderWidth ?? 1);
 	const [borderColors] = useState(() =>
 		join(props.borderColors, [
