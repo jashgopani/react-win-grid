@@ -4,6 +4,15 @@ A lightweight and customisable Windows 10 Grid Component for ReactJS.
 
 ![Demo](./media/GridDemo.gif)
 
+## Table of contents
+
+-   [Changelog](#changelog)
+-   [Installation](#installation)
+-   [Getting Started](#getting-started)
+-   [WinItem](#winitem)
+-   [WinGrid](#wingrid)
+-   [DEMO](#demo)
+
 ## Changelog
 
 -   @1.0.0 - First stable version
@@ -79,3 +88,7 @@ All the props mentioned below are optional
 | style           | CSS styles for the component                                                                                                                                                                   | Object           | Valid css properties (camelCased)                                                                                                                                                  |
 
 > 💡 **Tip**: Use the `offsetPoints` and `directions` props to fine tune the performance of the `WinGrid` based on your layout
+
+## DEMO
+
+[![Edit react-wingrid DEMO](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-wingrid-demo-sehd5?fontsize=14&hidenavigation=1&theme=light&view=preview)
