@@ -41,6 +41,7 @@
 		"autoprefixer": "^10.2.5",
 		"babel-loader": "^8.2.2",
 		"postcss": "^8.2.15",
+		"react-icons": "^4.2.0",
 		"rollup": "^2.47.0",
 		"rollup-plugin-babel": "^4.4.0",
 		"rollup-plugin-css-bundle": "^1.0.4",

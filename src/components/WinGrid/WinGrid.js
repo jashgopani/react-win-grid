@@ -140,6 +140,8 @@ export const WinGrid = forwardRef((props, gridRef) => {
 			style={gridStyle}>
 			{refsArray.current.map((r, i) => {
 				const gridTag = `grid#${gridId.current}child${i}`;
+				if (typeof gridChildrenArray[i] === 'string')
+					return <span key={gridTag}>{gridChildrenArray[i]}</span>;
 				const identifier = gridChildrenArray[i].id ?? gridTag;
 				const gridChildProps = {
 					...gridChildrenArray[i].props,
@@ -152,12 +154,13 @@ export const WinGrid = forwardRef((props, gridRef) => {
 					typeof gridChildrenArray[i].type === 'object'
 				)
 					gridChildProps.borderColors = borderColors;
-				gridChildProps.id = identifier;
-				gridChildProps.ref = r;
-				gridChildProps.key = gridTag;
-				gridChildProps.gridTag = gridTag;
+				gridChildProps['id'] = identifier;
+				gridChildProps['ref'] = r;
+				gridChildProps['key'] = gridTag;
 				if (typeof gridChildrenArray[i].type !== 'string') {
-					gridChildProps.gridTag = gridTag;
+					gridChildProps['gridTag'] = gridTag;
+				} else {
+					gridChildProps['data-grid-tag'] = gridTag;
 				}
 				return cloneElement(gridChildrenArray[i], gridChildProps);
 			})}

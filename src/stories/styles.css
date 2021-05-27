@@ -2,10 +2,71 @@
 	box-sizing: border-box;
 	font-family: 'Noto Sans JP', sans-serif;
 }
+
 body {
-	background-color: black;
+	text-align: center;
+	background-color: #222;
+	color: white;
 }
 
-.text-white {
-	color: orange;
+.grid-style {
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	justify-content: center;
+	justify-items: stretch;
+	align-items: center;
+	align-content: center;
+	padding: 1rem;
+}
+
+.action-btn {
+	flex: 1 1 auto;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	text-align: start;
+	gap: 2rem;
+	background-color: #333 !important;
+	padding: 0.25rem;
+	font-size: medium;
+}
+.action-btn > svg {
+	font-size: larger;
+}
+
+.flex-row {
+	font-size: large;
+	display: flex;
+	justify-content: flex-start;
+	padding: 1rem;
+	gap: 1rem;
+}
+.flex-row > * {
+	width: max-content !important;
+}
+
+.mid-span {
+	padding: 0.5rem;
+	grid-column: -4/-2;
+}
+
+.mid-span > * {
+	width: 100%;
+}
+
+.normal {
+	width: max-content;
+	padding: 1rem 4rem;
+}
+
+.imagecontent {
+	padding: 0px;
+	width: max-content;
+}
+
+.fullspan {
+	grid-column: 1/-1;
+}
+.simg {
+	max-width: 240px;
 }

@@ -74,8 +74,18 @@ export const WinItem = forwardRef((props, ref) => {
 	};
 
 	const children = props.disabled
-		? Children.toArray(props.children).map((e) =>
-				cloneElement(e, { ...e.props, disabled: true })
+		? Children.toArray(props.children).map((e, i) =>
+				React.isValidElement(e)
+					? cloneElement(e, {
+							...e.props,
+							key: `${identifier}${i}`,
+							disabled: true,
+					  })
+					: cloneElement(<>{e}</>, {
+							...e.props,
+							key: `${identifier}${i}`,
+							disabled: true,
+					  })
 		  )
 		: props.children;
 	const nonImageContent = (
