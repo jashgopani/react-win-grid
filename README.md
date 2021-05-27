@@ -15,7 +15,7 @@ A lightweight and customisable Windows 10 Grid Component for ReactJS.
 
 ## Changelog
 
--   @1.0.0 - First stable version
+-   @1.0.\* - First stable version
 
 ## Installation
 
