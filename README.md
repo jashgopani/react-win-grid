@@ -2,16 +2,10 @@
 
 A lightweight and customisable Windows 10 Grid Component for ReactJS to give a native windows look to your web apps.
 
-<center>
-
 [![GitHub license](https://img.shields.io/github/license/jashgopani/react-win-grid?style=for-the-badge)](https://github.com/jashgopani/react-win-grid/blob/main/LICENSE)
 [![GitHub forks](https://img.shields.io/github/forks/jashgopani/react-win-grid?style=for-the-badge)](https://github.com/jashgopani/react-win-grid/network)
 [![GitHub stars](https://img.shields.io/github/stars/jashgopani/react-win-grid?style=for-the-badge)](https://github.com/jashgopani/react-win-grid/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/jashgopani/react-win-grid?style=for-the-badge)](https://github.com/jashgopani/react-win-grid/issues)
-<br/>
-<br/>
-
-</center>
 
 ![Demo](./media/react-win-grid-demo.gif)
 
